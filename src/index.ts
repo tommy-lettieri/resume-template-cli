@@ -1,1 +1,2 @@
-console.log('hi');
+export * from './cli';
+export * from './validate';

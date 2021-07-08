@@ -2,16 +2,18 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "ES6",
-        "outDir": "ts-built",
+        "outDir": "dist",
         "resolveJsonModule": true,
 
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
         "sourceMap": true,
+        "declaration": true,
         
         "strict": true,
-        "rootDir": "src"
+        "rootDir": "src",
+        "esModuleInterop": true
     },
     "include": [
         "src"
