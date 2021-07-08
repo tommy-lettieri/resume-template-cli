@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "required": ["schools"],
+    "additionalProperties": true,
+    "properties": {
+        "logoWidth": {
+            "type": "number",
+            "description": "Give a constant width to all logos to have nice allignment.",
+            "example": 1
+        },
+        "dateFormat": {
+            "type": "string",
+            "description": "Used with format to allow you to configure date output.",
+            "example": "MMMM yyyy"
+        },
+        "gpaPrecision": {
+            "type": "number",
+            "description": "The number of decimal points you want to output in gpa output",
+            "example": 2
+        },
+        "schools": {
+            "type": "array",
+            "description": "A list of schools that you want on your resume",
+            "items": {
+                "type": "object",
+                "required": ["name"],
+                "additionalProperties": true,            
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the school you went to",
+                        "example": "University of the World"
+                    },
+                    "gpa": {
+                        "type": "number",
+                        "description": "Your cumulative GPA for the school you went to",
+                        "example": 4.0
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "tsType": "Date",
+                        "description": "When you started at this institution",
+                        "example": "2019-09-28T02:00:00.000Z",
+                        "maxLength": 30
+                    },
+                    "endDate": {
+                        "description": "When you finished at this institution (null for present)",
+                        "oneOf": [{
+                            "type": "string",
+                            "format": "date-time",
+                            "tsType": "Date",
+                            "example": "2019-09-28T02:00:00.000Z",
+                            "maxLength": 30    
+                        }, {
+                            "type": "null"
+                        }]
+                    },
+                    "major": {
+                        "type": "string",
+                        "description": "What was your major (if applicable) at this university",
+                        "example": "B.S. in Mathematics"
+                    },
+                    "awards": {
+                        "type": "string",
+                        "description": "Any awards you want to brag about",
+                        "example": "Programming Team Captain, Vice President of ACM club, Upsilon Pi Epsilon International Computer Science Honor Society, Coder Dojo Sensei"
+                    },
+                    "logoURL": {
+                        "type": "string",
+                        "description": "The url of where the image is located.",
+                        "example": "/my-image.png"
+                    },
+                    "website": {
+                        "type": "string",
+                        "description": "The website of the institution. Will be hyperlinked on the logo and header",
+                        "example": "https://google.com"
+                    },
+                    "namedBlurbs": {
+                        "type": "object",
+                        "required": [],
+                        "additionalProperties": true,
+                        "description": "A named list of things you want to talk about",
+                        "tsType": "{ [k: string]: string; }",
+                        "patternProperties": {
+                            "*": {
+                                "type": "string"
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+}

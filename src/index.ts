@@ -1,2 +1,3 @@
-export * from './cli';
+export * from './init';
 export * from './validate';
+export * from './default-file-types'

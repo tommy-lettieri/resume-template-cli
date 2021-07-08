@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "required": ["name"],
+    "additionalProperties": true,
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Your name",
+            "example": "Tom Jones"
+        },
+        "missionStatement": {
+            "type": "string",
+            "description": "A little blurb under your name that defines your objectives",
+            "example": "To write good code"
+        },
+        "backgroundImageURL": {
+            "type": "string",
+            "description": "An image you want people to see on this landing page as a background",
+            "example": "/background.png"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "description": "The color of the background (like background image above)",
+            "example": "red"
+        }
+    }
+}

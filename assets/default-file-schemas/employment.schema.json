@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "required": ["employments"],
+    "additionalProperties": true,
+    "properties": {
+        "logoWidth": {
+            "type": "number",
+            "description": "Give a constant width to all logos to have nice allignment.",
+            "example": 1
+        },
+        "dateFormat": {
+            "type": "string",
+            "description": "Used with format to allow you to configure date output.",
+            "example": "MMMM yyyy"
+        },
+        "employments": {
+            "type": "array",
+            "description": "A list of jobs that you want on your resume",
+            "items": {
+                "type": "object",
+                "required": ["name"],
+                "additionalProperties": true,            
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the job you worked for",
+                        "example": "University of the World"
+                    },
+                    "startDate": {
+                        "type": "string",
+                        "format": "date-time",
+                        "tsType": "Date",
+                        "description": "When you started at this institution",
+                        "example": "2019-09-28T02:00:00.000Z",
+                        "maxLength": 30
+                    },
+                    "endDate": {
+                        "description": "When you finished at this institution (null for present)",
+                        "oneOf": [{
+                            "type": "string",
+                            "format": "date-time",
+                            "tsType": "Date",
+                            "example": "2019-09-28T02:00:00.000Z",
+                            "maxLength": 30    
+                        }, {
+                            "type": "null"
+                        }]
+                    },
+                    "logoURL": {
+                        "type": "string",
+                        "description": "The url of where the image is located.",
+                        "example": "/my-image.png"
+                    },
+                    "website": {
+                        "type": "string",
+                        "description": "The website of the institution. Will be hyperlinked on the logo and header",
+                        "example": "https://google.com"
+                    },
+                    "namedBlurbs": {
+                        "type": "object",
+                        "required": [],
+                        "additionalProperties": true,
+                        "description": "A named list of things you want to talk about",
+                        "tsType": "{ [k: string]: string; }",
+                        "patternProperties": {
+                            "*": {
+                                "type": "string"
+                            }
+                        }
+                    }                    
+                }
+            }
+        }
+    }
+}
