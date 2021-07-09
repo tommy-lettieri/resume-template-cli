@@ -108,3 +108,4 @@ src
 nodemon.json
 tsconfig.json
 /utility-scripts
+.github
