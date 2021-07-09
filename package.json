@@ -1,6 +1,6 @@
 {
   "name": "@z87/resume-template-cli",
-  "version": "0.0.0",
+  "version": "0.0.0-1",
   "description": "This is a CLI to initialize resume template data or validate it.",
   "main": "dist/index.js",
   "bin": "./index.js",
