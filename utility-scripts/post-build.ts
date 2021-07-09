@@ -12,7 +12,7 @@ const defaultFileTypesTarget = 'dist/default-file-types';
     await sleep(3000);
     // TSC doesn't copy over .d.ts files
     if (fs.existsSync(defaultFileTypesTarget)) {
-        fs.remove(defaultFileTypesTarget)
+        await fs.remove(defaultFileTypesTarget)
     }
     await fs.copy(defaultFileTypesSource, defaultFileTypesTarget);
 })();
